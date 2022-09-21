@@ -53,11 +53,14 @@ function reverse_nested() {
 
     for (let i = 0; i < n.length; i++) {
 
+        console.log(n);
         if (Array.isArray(n[i])) {
             //这里递归会造成溢出怎么解决呢？
             reverse_nested(n[i]);
-
-            return;
+            console.log(n[i]);
+        }
+        else {
+            break;
         }
     }
 }
@@ -65,12 +68,10 @@ function reverse_nested() {
 n = [[2, 3, 4], 3, 4, ['a', 'b', 's', [1, 2, 3, 4]], 6, 7];
 
 // 这里是因为n不是对象所以无法调用吗
-// result = n.reverse_nested();
+//result = n.reverse_nested();
 // n.reverse和reverse(n)的不同
 
 reverse_nested(n);
-
-//reverse_nested(n);
 
 console.log(n);
 
