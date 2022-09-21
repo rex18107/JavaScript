@@ -43,35 +43,89 @@ build_list(n);
 
 console.log(a);
 
-//3. reverse_nested: 接受一个带有n个元素的列表,反转里面的元素,包括里面的子列表中的元素
+// 3. reverse_nested: 接受一个带有n个元素的列表,反转里面的元素,包括里面的子列表中的元素
+// 比如：[[2,3,4],8,1,9]翻转为[9,1,8,[4,3,2]]
 
-var n = [];
 
-function reverse_nested() {
+let c = [[2, 3, 4], 3, 4, ['a', 'b', 's', [1, 2, 3, 4]], 6, 7];
+let arr = [];
+function reverse_nested(arr) {
+    arr.reverse();
 
-    n.reverse();
+    // 对arr的每一个元素进行判断
+    for (let i = 0; i < arr.length; i++) {
 
-    for (let i = 0; i < n.length; i++) {
-
-        console.log(n);
-        if (Array.isArray(n[i])) {
-            //这里递归会造成溢出怎么解决呢？
-            reverse_nested(n[i]);
-            console.log(n[i]);
-        }
-        else {
-            break;
+        // 如果元素为数组的话也要进行翻转，使用递归
+        if (Array.isArray(arr[i])) {
+            //这里递归会造成溢出怎么解决呢？要设置边界条件
+            reverse_nested(arr[i]);
         }
     }
 }
-
-n = [[2, 3, 4], 3, 4, ['a', 'b', 's', [1, 2, 3, 4]], 6, 7];
+reverse_nested(c);
+console.log(c);
 
 // 这里是因为n不是对象所以无法调用吗
 //result = n.reverse_nested();
 // n.reverse和reverse(n)的不同
 
-reverse_nested(n);
+//这是Q3的第二种解答
+// r_arr = function (n) {
+//     for (let index = 0; index < n.length; index++) {
+//         if (Array.isArray(n[index])) {
+//             n[index].reverse();
+//             r_arr(n[index])
+//         }
+//     }
+// }
+// r_arr(c);
+// c.reverse();
+// console.log(c);
 
-console.log(n);
 
+
+// var n = 1;
+
+// function test() {
+//     n = n + 1;
+// }
+
+// // 调用第一次
+// test();
+
+// // 2
+// console.log(n);
+
+// // 调用第二次
+// test();
+
+// // 3
+// console.log(n);
+
+// // undefined,因为test()函数没有返回值,但是也是调用了一次test()
+// console.log(test());
+
+// // 4
+// console.log(n);
+
+// function test2(m) {
+//     m = m + 1;
+//     return m;
+// }
+
+// // 2
+// console.log(test2(1));
+
+// // 4
+// console.log(test2(3));
+
+// function test3(m) {
+//     m = n + 1;
+//     return m;
+// }
+
+// // 5
+// console.log(test3(1));
+
+// // 5
+// console.log(test3(3));
