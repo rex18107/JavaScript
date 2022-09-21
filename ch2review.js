@@ -47,17 +47,22 @@ function isInArray(arr, value) {
 
             return true;
         }
-        else {
+        // 只要数组第一个值不匹配，就会跳到faulse这是对的
+        // ，但是因为是return会直接跳出循环，即便value是存在与数组中但是是在后面元素
+        // else {
 
-            return false;
-        }
+        //     return false;
+        // }
     }
+    return false;
+
+
 
 }
 
 arrp = [33, 22, 44];
 
-// faulse, 为什么？？？
+// true
 isInArray(arrp, 44);
 
 console.log(isInArray(arrp, 44));
