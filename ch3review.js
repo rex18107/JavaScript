@@ -63,6 +63,8 @@ function reverse_nested(arr) {
     }
 }
 reverse_nested(c);
+
+// [ 7, 6, [ [ 4, 3, 2, 1 ], 's', 'b', 'a' ], 4, 3, [ 4, 3, 2 ] ]
 console.log(c);
 
 // 这里是因为n不是对象所以无法调用吗
