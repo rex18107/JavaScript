@@ -110,5 +110,3 @@ function b_to_d(bi) {
 let bi = [1, 0, 1];
 
 console.log(b_to_d(bi));
-
-
