@@ -204,6 +204,3 @@ function islands(matrix) {
 
 
 console.log(islands(matrix));
-
-
-
